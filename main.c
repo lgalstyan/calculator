@@ -1,11 +1,13 @@
 #include "calculator.h"
 
-int main() {
+int main()
+{
 
     stack st;
     st.size = 0;
     Operator type;
     char operand[MAX_DOUBLE];
+    int flag_inval = 0;
 
     while ((type = read_line(operand)) != END)
     {
@@ -13,7 +15,6 @@ int main() {
         {
         case NUMBER:
             push_back(&st, atof(operand));
-            // print_stack(&st);
             break;
         case MINUS:
             operator_minus(&st);
@@ -28,24 +29,17 @@ int main() {
             operator_divide(&st);
             break;
         default:
-            // perror("Error: Unkonwn operand!");
+            flag_inval = 1;
+            perror("Error: Unkonwn operand!");
             break;
         }
     }
-        if (!isEmpty(&st))
-        {
-            printf(GREEN);
-            printf("Resule is: %f\n", pop(&st));
-            printf(RESET);
-        }
-        else
-            // perror("Error: Invalid count of operand!");
-    // printf("Enter a character: ");
-    // while((ch = getchar()) != EOF)
-    // {
-    //     printf("You entered: %c\n", ch);
-    // }
-
+    if (!isEmpty(&st) && !flag_inval)
+    {
+        printf(GREEN);
+        printf("Resule is: %f\n", pop(&st));
+        printf(RESET);
+    }
     return 0;
 }
 

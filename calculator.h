@@ -42,6 +42,6 @@ void operator_minus(stack*);
 void operator_multipl(stack*);
 void operator_divide(stack*);
 
-// not important
-void print_stack(stack *st);
+// // not important
+// void print_stack(stack *st);
 #endif
