@@ -2,9 +2,9 @@
 #define CALCULATOR_H
 
 //Colors Start
+#define RED	"\033[31m"
 #define RESET	"\033[0m"
 #define GREEN   "\x1B[32m"
-#define RED		"\033[31m"
 //Colors End
 
 #include <stdio.h>
@@ -23,13 +23,13 @@ typedef enum {
     NUMBER,
     INVALID,
     END
-} Operator;
+} 	Operator;
 
 typedef struct
 {
-	double data[STACK_SIZE];
-    size_t size;
-}		    stack;
+	double 	data[STACK_SIZE];
+	size_t 	size;
+}		stack;
 
 Operator read_line(char *);
 void push_back(stack*,  double );
@@ -42,6 +42,6 @@ void operator_minus(stack*);
 void operator_multipl(stack*);
 void operator_divide(stack*);
 
-// // not important
-// void print_stack(stack *st);
+// not important
+//void print_stack(stack *st);
 #endif
